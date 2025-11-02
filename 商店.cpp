@@ -10,6 +10,7 @@ void jieshoustring(string& data) {
 	}
 }
 int main(){
+	changecolor("E");
 	string filePath;
 	jieshoustring(filePath);
 	loadSaveFile(filePath); 

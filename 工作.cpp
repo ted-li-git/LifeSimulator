@@ -11,6 +11,7 @@ void jieshoustring(string& data) {
 	}
 }
 int main(){
+	changecolor("E");
 	string data;
 	jieshoustring(data); 
 	loadSaveFile(data);

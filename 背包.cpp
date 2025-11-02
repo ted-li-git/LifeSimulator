@@ -15,6 +15,7 @@ void jieshoustring(string& data) {
 }
 
 int main() {
+	changecolor("E");
     string filePath;
     jieshoustring(filePath);
     loadSaveFile(filePath);
@@ -24,16 +25,15 @@ int main() {
         int q;
         cout << "请输入对应物品数字" << endl;
         cin >> q;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 清空缓冲区
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         if (q < 1 || q > items.size()) {
             cout << "无效的物品编号" << endl;
             continue;
         }
-        
         int q2;
         cout << "执行什么操作？1.使用 2.卖出 0.取消" << endl;
         cin >> q2;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 清空缓冲区
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         
         if (q2 == 1) {
             if (items[q-1] == "food") {
@@ -63,7 +63,7 @@ int main() {
             }
         } else if (q2 == 0) {
             cout << "已取消" << endl;
-            break; // 退出循环
+            break;
         } else {
             cout << "无效的操作编号" << endl;
         }

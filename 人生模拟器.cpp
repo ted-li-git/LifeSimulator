@@ -13,7 +13,7 @@ void createPassStringFile(const string& filePath) {
 
 
 int main() {
-	 
+	changecolor("9");
     cout << "              人生模拟器" << endl;
     cout << "            powered by LJT" << endl;
     cout << "读取存档，请输入路径，没有存档请输入\"nosave\"：";
@@ -24,6 +24,7 @@ int main() {
     thread moneyThread(increaseMoneyPeriodically);
     cls();
     cout<<"你好，用户 "<<username<<" "<<endl;
+    changecolor("E");
     while (true) {
         cout << "1.检测当前状态" << endl;
         cout << "2.购房" << endl;
@@ -34,7 +35,8 @@ int main() {
         cout << "7.关于" << endl;
         cout << "8.背包" << endl;
         cout << "9.商店" << endl;
-        cout << "10.退出" << endl;
+        cout << "10.手机" << endl;
+        cout << "0.退出" << endl;
         cout << "输入字符来开始游戏" << endl;
         cin >> index;
         hd = house_detection(house);
@@ -198,7 +200,10 @@ int main() {
         	system("start 商店.exe");
         	cls();
 		}else if(index==10){
-			stopFlag=true;;
+			system("start 手机.exe");
+			cls();
+		}else if(index==0){
+			stopFlag=true;
         	cout << "欢迎再来" << endl;
             moneyThread.join();
             break;

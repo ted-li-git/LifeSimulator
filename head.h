@@ -229,3 +229,8 @@ void te(const string& text, int min_delay_ms, int max_delay_ms) {
     }
     cout << endl;
 }
+
+void changecolor(string color){
+	string command=string("color ") + color;
+	system(command.c_str());
+}

@@ -2,20 +2,11 @@
 #include <thread>
 #include <chrono>
 #include <random>
+#include "head.h"
 using namespace std;
-void te(const string& text, int min_delay_ms, int max_delay_ms) {
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dis(min_delay_ms, max_delay_ms);
-    for (char c : text) {
-        cout << c;
-        int delay_ms = dis(gen);
-        this_thread::sleep_for(std::chrono::milliseconds(delay_ms));
-    }
-    cout << endl;
-}
 
 int main() {
+	changecolor("E");
     string m1 = "当你看到这个游戏的时候...";
     te(m1, 50, 200);
     string m2 = "就证明这个游戏已经发出去了！！";

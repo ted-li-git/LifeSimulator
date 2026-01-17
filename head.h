@@ -10,6 +10,17 @@
 #include <limits>
 #include <atomic>
 #include <random>
+#include <sys/stat.h> 
+#include <regex>
+#include <cstdio>
+#include <wininet.h>
+
+
+#ifdef _WIN32
+#include <direct.h>
+#define mkdir(path,mode) _mkdir(path)
+#endif
+
 
 using namespace std;
 
@@ -59,6 +70,8 @@ void loadSaveFile(string& filePath) {
         }
         file.close();
     } else {
+    	struct stat st;
+    	if (stat("Save", &st) != 0) mkdir("Save", 0755);
         filePath = ".\\Save\\save.ls";
     }
 }
@@ -233,4 +246,14 @@ void te(const string& text, int min_delay_ms, int max_delay_ms) {
 void changecolor(string color){
 	string command=string("color ") + color;
 	system(command.c_str());
+}
+
+bool checkItem(string key){
+    auto it = find(items.begin(), items.end(), key);
+
+    if (it != items.end()) {
+        return true;
+    } else {
+        return false;
+    }
 }

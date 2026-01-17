@@ -7,6 +7,12 @@ using namespace std;
 
 int main() {
 	changecolor("E");
+	string c1 = "版权所有 2025LJTStudio From:LJTStudio Technology";
+	string c2 = "LJTStudio Group和LJTStudio都是LJTStudio的标识，请注意识别";
+	string c3 = "此游戏完全免费，无任何内购内容，请注意识别盗版";
+	te(c1, 100, 200);
+	te(c2, 100, 200);
+	te(c3, 100, 200);
     string m1 = "当你看到这个游戏的时候...";
     te(m1, 50, 200);
     string m2 = "就证明这个游戏已经发出去了！！";

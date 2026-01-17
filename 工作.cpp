@@ -69,9 +69,10 @@ int main(){
 				}
 			}
 		}
-	}else{
-		cout<<"更多职业工作剧情敬请期待1.1.0及以后版本..."<<endl;
-	}
+	}else if(gongzuo=="doctor"){
+		cout<<"饿啊";
+		 
+	} 
 	system("pause");
 	return 0;
 }

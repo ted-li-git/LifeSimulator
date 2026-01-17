@@ -1,6 +1,6 @@
 #include "head.h"
 using namespace std;
-int index;
+string index;
 string filePath;
 
 void createPassStringFile(const string& filePath) {
@@ -26,22 +26,23 @@ int main() {
     cout<<"你好，用户 "<<username<<" "<<endl;
     changecolor("E");
     while (true) {
-        cout << "1.检测当前状态" << endl;
-        cout << "2.购房" << endl;
-        cout << "3.找工作" << endl;
-        cout << "4.存档" << endl;
-        cout << "5.去工作" << endl;
-        cout << "6.改名" << endl;
-        cout << "7.关于" << endl;
-        cout << "8.背包" << endl;
-        cout << "9.商店" << endl;
-        cout << "10.手机" << endl;
-        cout << "0.退出" << endl;
+    	cout << "注意：本版本（1.1.0alpha）为alpha测试版，拥有超多不知名bug和已知bug，遇到bug请理性反馈，谢谢" << endl; 
+        cout << "dcs.检测当前状态" << endl;
+        cout << "gh.购房" << endl;
+        cout << "fw.找工作" << endl;
+        cout << "save.存档" << endl;
+        cout << "work.去工作" << endl;
+        cout << "rn.改名" << endl;
+        cout << "about.关于" << endl;
+        cout << "bag.背包" << endl;
+        cout << "shop.商店" << endl;
+        cout << "phone.手机" << endl;
+        cout << "exit.退出" << endl;
         cout << "输入字符来开始游戏" << endl;
         cin >> index;
         hd = house_detection(house);
         ReloadSaveFile(filePath);
-        if (index == 1) {
+        if (index == "dcs") {
         	ReloadSaveFile(filePath);
         	cls();
         	cout << "目前名字：" << username << endl;
@@ -53,7 +54,7 @@ int main() {
             cout << "目前饱食度:" << bsd << " " << "目前口渴值:" << sfd << endl;
             printx();
             xcls();
-        } else if (index == 2) {
+        } else if (index == "gh") {
         	cls();
             cout << "房子1 售价2600000" << "房子2 售价1200000" << endl;
             cin >> q;
@@ -78,7 +79,7 @@ int main() {
             }
             printx();
             xcls();
-        } else if (index == 3) {
+        } else if (index == "fw") {
         	cls();
             if (gongzuo.empty()) {
                 int q2;
@@ -158,14 +159,30 @@ int main() {
 				}
             }
             
-        } else if (index == 4) {
+        } else if (index == "save") {
         	cls();
-            saveGame(filePath); 
-        } else if (index == 5) {
+        	cout<<"存档后将会覆盖原存档，是否继续？继续y停止n"<<endl;
+			char q;
+			cin>>q;
+			if(q=='y'){
+				saveGame(filePath); 
+				printx();
+				xcls();
+			}else if(q=='n'){
+				cout<<"已取消"<<endl;
+				printx();
+				xcls();
+			}else{
+				cout<<"已自动取消"<<endl;
+				printx();
+				xcls();
+			}
+            
+        } else if (index == "work") {
             system("start 工作.exe");
             createPassStringFile(filePath);
             cls();
-        }else if(index==6){
+        }else if(index=="rn"){
         	cls();
         	string cache;
         	int q6;
@@ -188,21 +205,21 @@ int main() {
 				printx();
 				xcls();
 			}
-		}else if(index==7){
+		}else if(index=="about"){
         	system("start 关于.exe");
         	cls();
-		}else if(index==8){
+		}else if(index=="bag"){
         	createPassStringFile(filePath);
         	system("start 背包.exe");
         	cls();
-		}else if(index==9){
+		}else if(index=="shop"){
         	createPassStringFile(filePath);
         	system("start 商店.exe");
         	cls();
-		}else if(index==10){
+		}else if(index=="phone"){
 			system("start 手机.exe");
 			cls();
-		}else if(index==0){
+		}else if(index=="exit"){
 			stopFlag=true;
         	cout << "欢迎再来" << endl;
             moneyThread.join();

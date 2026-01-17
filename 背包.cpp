@@ -19,6 +19,11 @@ int main() {
     string filePath;
     jieshoustring(filePath);
     loadSaveFile(filePath);
+    bool havehousekey=checkItem("house-key"); 
+    if (house != NULL && havehousekey==false){
+    	addItem("house-key");
+    	saveGamenotip(filePath);
+	}
     while (true) {
     	ReloadSaveFile(filePath);
         displayItems();
@@ -44,6 +49,7 @@ int main() {
                 removeItem(q);
                 saveGamenotip(filePath);
             } else if (items[q-1] == "house-key") {
+            	system("start 家园.exe");
                 cout << "已将你传送至房子" << endl;
             } else {
                 cout << "不可互动" << endl;
